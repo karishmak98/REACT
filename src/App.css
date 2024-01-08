@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.form-label {
+  display: block;
+  text-align: left;
+}
+
+.form_container{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 450px;
+  margin: 50px auto ;
+}
+
+.button_primary{
+    display: block;
+    width: 100%;
+    padding: 12px !important;
+
+}
+
+input[type="text"],input[type="password"],input[type="email"]{
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.invalid-feedback {
+  text-align: left;
+}
+
