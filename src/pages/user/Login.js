@@ -11,10 +11,11 @@ import {
   } from "@coreui/react";
   import AuthService from '../../components/services/authService'
   import Swal from 'sweetalert2'
-  import ClientCaptcha from "react-client-captcha";
-  import { useNavigate,Navigate } from 'react-router-dom';
+  import { useNavigate,Navigate, Link } from 'react-router-dom';
   import {useDispatch,useSelector} from 'react-redux'
   import { postJsonData } from "../../redux/apiThunk";
+  import {Register} from "../../route"
+import { Button } from "bootstrap";
 
 const Login=()=>{
     const navigate=useNavigate()
@@ -25,7 +26,7 @@ const Login=()=>{
   captcha:''
     })
    
-    const [captchaCode, setCaptcha] = useState();
+    
     const [isLoggedIn,setIsLoggedIn]=useState(false)
     const dispatch=useDispatch()
   
@@ -126,6 +127,9 @@ const Login=()=>{
     return (
     <>
 <div className="form_container">
+ <CCol>
+  <Link to="/register">Sign Up</Link>
+ </CCol>
       <h3 className="mt-3">Login</h3>
       <CForm
         className="row g-3 needs-validation mt-5"
@@ -153,29 +157,6 @@ const Login=()=>{
           {/* <CFormFeedback invalid>Please enter a valid password</CFormFeedback> */}
 
           <CFormFeedback invalid>Please enter a valid password</CFormFeedback>
-        </CCol>
-        <CCol md={12} xs={12}>
-        <ClientCaptcha
-              captchaCode={setCaptcha}
-              chars="ABCDEFGHJK@"
-              charsCount={6}
-              width={150}
-              height={50}
-              fontSize={20}
-              backgroundColor="#F5F5DC"
-              fontColor="blue"
-            />
-             <CFormInput
-             className="mt-3"
-              type="text"
-              name="captcha"
-              placeholder="Enter captcha..."
-              onChange={handleChange}
-              pattern={captchaCode}
-              required
-              
-            />
-            <CFormFeedback invalid>Please enter a valid captcha</CFormFeedback>
         </CCol>
         <CCol xs={12}>
           <CButton className="primary button_primary" type="submit">

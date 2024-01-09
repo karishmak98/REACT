@@ -11,7 +11,7 @@ import {
 } from "@coreui/react";
 import AuthService from '../../components/services/authService'
 import Swal from 'sweetalert2'
-import ClientCaptcha from "react-client-captcha";
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -25,7 +25,7 @@ password:'',
 captcha:''
   })
  
-  const [captchaCode, setCaptcha] = useState();
+  
 
   const handleChange=(e)=>{
    const name=e.target.name
@@ -131,29 +131,6 @@ captcha:''
           {/* <CFormFeedback invalid>Please enter a valid password</CFormFeedback> */}
 
           <CFormFeedback invalid>Please enter a valid password</CFormFeedback>
-        </CCol>
-        <CCol md={12} xs={12}>
-        <ClientCaptcha
-              captchaCode={setCaptcha}
-              chars="ABCDEFGHJK@"
-              charsCount={6}
-              width={150}
-              height={50}
-              fontSize={20}
-              backgroundColor="#F5F5DC"
-              fontColor="blue"
-            />
-             <CFormInput
-             className="mt-3"
-              type="text"
-              name="captcha"
-              placeholder="Enter captcha..."
-              onChange={handleChange}
-              pattern={captchaCode}
-              required
-              
-            />
-            <CFormFeedback invalid>Please enter a valid captcha</CFormFeedback>
         </CCol>
         <CCol xs={12}>
           <CButton className="primary button_primary" type="submit">
